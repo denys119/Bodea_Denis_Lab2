@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bodea_Denis_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="mnuMain_Loaded">
     <Grid>
         <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <GroupBox x:Name="gbRaised" Header="Raised" Margin="92,102,552,197" FontWeight="Bold">
             <Canvas Margin="0,0,0,-13">
                 <Label x:Name="lblGlazedRaised" Content="Glazed" Height="34" RenderTransformOrigin="0.707,1.326" Canvas.Left="1" Canvas.Top="10"/>
-                <TextBox x:Name="txtSugarRaised_" Canvas.Left="52" Canvas.Top="45" Text="0" TextWrapping="Wrap" Width="82" Height="18" IsReadOnly="True" FontWeight="Normal"/>
+                <TextBox x:Name="txtSugarRaised" Canvas.Left="52" Canvas.Top="45" Text="0" TextWrapping="Wrap" Width="82" Height="18" IsReadOnly="True" FontWeight="Normal"/>
                 <Label x:Name="lblSugarRaised" Content="Sugar" Canvas.Left="4" Canvas.Top="41" RenderTransformOrigin="0.05,-0.151"/>
             </Canvas>
         </GroupBox>
@@ -24,7 +24,7 @@
                 <TextBox x:Name="txtVanillaFilled" Canvas.Left="81" Canvas.Top="72" Text="0" TextWrapping="Wrap" Width="123" FontWeight="Normal" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
-        <TextBox x:Name="txtGlazedRaised_" HorizontalAlignment="Left" Margin="150,134,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Height="18" IsReadOnly="True"/>
+        <TextBox x:Name="txtGlazedRaised" HorizontalAlignment="Left" Margin="150,134,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Height="18" IsReadOnly="True"/>
         <TextBox x:Name="txtLemonFilled" HorizontalAlignment="Left" Margin="417,125,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <GroupBox x:Name="gbSale" Header="Current Sale " Margin="10,242,22,24" FontWeight="Bold">
             <Canvas>
@@ -42,31 +42,26 @@
                 <Button x:Name="btnCheckOut" Content="Check Out " Canvas.Left="661" Canvas.Top="123" Width="78" Height="23"/>
             </Canvas>
         </GroupBox>
-        <Menu Margin="0,-2,640,363"/>
-        <Menu x:Name ="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
-Width="130">
+
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
+Width="131">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
-            <MenuItem Header="Doughnuts">
-                <MenuItem Header="Make"/>
-                <MenuItem Header="Raised">
-                    <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                    <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+            <MenuItem Header="_Doughnuts">
+                <MenuItem Header="Make">
+                    <MenuItem Header="Raised">
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed"
+Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar"
+IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Filled"/>
                 </MenuItem>
-                <MenuItem Header="Filled">
-                    
-                </MenuItem>
-                
-                
-
-
+                <MenuItem x:Name="mnuStop" Header="Stop"
+Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
-            
-            
-            
         </Menu>
-        
 
 
     </Grid>
